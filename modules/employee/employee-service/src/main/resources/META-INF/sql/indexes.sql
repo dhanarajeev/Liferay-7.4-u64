@@ -1,0 +1,1 @@
+create index IX_A38719C7 on lr_employee (uuid_[$COLUMN_LENGTH:75$]);

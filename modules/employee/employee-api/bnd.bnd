@@ -1,0 +1,10 @@
+Bundle-Name: employee-api
+Bundle-SymbolicName: com.lr.revisted.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.lr.revisted.exception,\
+	com.lr.revisted.model,\
+	com.lr.revisted.service,\
+	com.lr.revisted.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../employee-service/service.xml
