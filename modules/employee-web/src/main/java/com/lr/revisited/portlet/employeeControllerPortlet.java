@@ -43,17 +43,17 @@ public class employeeControllerPortlet extends MVCPortlet {
 	}
 
 //	employeeLocalServiceUtil.deleteemployee(employeeId);
-	/*public void deleteemployee(ActionRequest actionRequest,
+	public void deleteemployee(ActionRequest actionRequest,
 							   ActionResponse actionResponse) throws IOException, PortalException {
             employeeLocalServiceUtil.deleteemployee( ParamUtil.getLong( actionRequest,
 																		"employeeId"));
         }
-*/
-	public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
+
+	/*public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
 		long employeeId = ParamUtil.getLong( actionRequest, "employeeId");
 		employeeLocalServiceUtil.deleteemployee ( employeeId );
 	}
-
+*/
 
 	private employeeService _employeeService;
 
