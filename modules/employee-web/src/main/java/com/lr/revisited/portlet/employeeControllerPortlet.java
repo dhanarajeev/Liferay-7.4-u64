@@ -1,15 +1,15 @@
 package com.lr.revisited.portlet;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.lr.revisited.constants.employeeControllerPortletKeys;
+import com.lr.revisted.service.employeeLocalServiceUtil;
 import com.lr.revisted.service.employeeService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import javax.portlet.Portlet;
-import javax.portlet.PortletException;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
+import javax.portlet.*;
 import java.io.IOException;
 
 /**
@@ -49,11 +49,11 @@ public class employeeControllerPortlet extends MVCPortlet {
 																		"employeeId"));
         }
 */
-	/*public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
+	public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
 		long employeeId = ParamUtil.getLong( actionRequest, "employeeId");
 		employeeLocalServiceUtil.deleteemployee ( employeeId );
 	}
-	*/
+
 
 	private employeeService _employeeService;
 
