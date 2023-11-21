@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.lr.goldisan.model.Company">
+		<field name="uuid" type="String" />
+		<field name="companyId" type="long" />
+		<field name="companyName" type="String" />
+		<field name="registrationId" type="long" />
+		<field name="email" type="String" />
+		<field name="taxId" type="long" />
+		<field name="phoneNumber" type="long" />
+		<field name="gst" type="long" />
+		<field name="address" type="String" />
+	</model>
+</model-hints>

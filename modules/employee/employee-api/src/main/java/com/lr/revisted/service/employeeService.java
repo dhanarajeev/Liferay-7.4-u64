@@ -22,12 +22,10 @@ import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
-
 import com.lr.revisted.model.employee;
+import org.osgi.annotation.versioning.ProviderType;
 
 import java.util.List;
-
-import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * Provides the remote service interface for employee. Methods of this
@@ -71,4 +69,8 @@ public interface employeeService extends BaseService {
 	 */
 	public String getOSGiServiceIdentifier();
 
+	employee deleteemployee(long employeeId) throws PortalException;
+	 employee updateemployee(
+			String name, long phoneNumber, String email, String address);
 }
+

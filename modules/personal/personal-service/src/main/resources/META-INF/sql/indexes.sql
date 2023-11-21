@@ -1,0 +1,1 @@
+create index IX_DF9D7E55 on lr_Personal (uuid_[$COLUMN_LENGTH:75$]);

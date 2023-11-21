@@ -1,0 +1,10 @@
+Bundle-Name: personal-api
+Bundle-SymbolicName: com.liferay.goldisan.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.goldisan.exception,\
+	com.liferay.goldisan.model,\
+	com.liferay.goldisan.service,\
+	com.liferay.goldisan.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../personal-service/service.xml

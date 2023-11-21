@@ -36,6 +36,12 @@ public class employeeControllerPortlet extends MVCPortlet {
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 
 		System.out.println ( "EmployeeControllerPortlet.doView() -->" );
+
+		int delta = ParamUtil.getInteger(renderRequest , "delta");
+		int cur = ParamUtil.getInteger ( renderRequest , "cur" );
+		int from= delta * (cur - 1 ) + 1;
+		int to = delta == 0 ? 10 : delta * cur;
+
 		renderRequest.setAttribute ( "totalemployees", _employeeService.getEmployeesCount () );
 		renderRequest.setAttribute ( "entries", _employeeService.getEmployees ( 0,20 ) );
 
@@ -49,18 +55,32 @@ public class employeeControllerPortlet extends MVCPortlet {
 																		"employeeId"));
         }
 
-	/*public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
+
+	/*public void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
 		long employeeId = ParamUtil.getLong( actionRequest, "employeeId");
 		employeeLocalServiceUtil.deleteemployee ( employeeId );
+
+		actionResponse.setRenderParameter("mvcRenderCommandName", "/view");
 	}
 */
 
+/*public void deleteemployee(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortalException {
+	long employeeId = ParamUtil.getLong ( actionRequest, "employeeId" );
+
+        List.removeIf(employee -> employee.getEmployeeId() == employeeId);
+
+        actionResponse.setRenderParameter("mvcRenderCommandName", "/view");
+}
+
+ */
+
 	private employeeService _employeeService;
 
-
 	@Reference(unbind = "-")
-	protected void setemployeeService(employeeService employeeService) {
+	protected void setemployeeService(employeeService employeeService)
+	{
 		_employeeService = employeeService;
 	}
+
 
 }

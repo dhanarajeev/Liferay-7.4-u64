@@ -15,6 +15,7 @@
 package com.lr.revisted.service;
 
 import com.liferay.portal.kernel.service.ServiceWrapper;
+import com.lr.revisted.model.employee;
 
 /**
  * Provides a wrapper for {@link employeeService}.
@@ -68,6 +69,17 @@ public class employeeServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _employeeService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public employee deleteemployee(long employeeId) {
+
+        return null;
+    }
+
+	@Override
+	public employee updateemployee(String name, long phoneNumber, String email, String address) {
+		return _employeeService.updateemployee ( name, phoneNumber, email, address );
 	}
 
 	@Override

@@ -15,6 +15,8 @@
 package com.lr.revisted.service;
 
 import com.liferay.portal.kernel.service.ServiceWrapper;
+import com.lr.revisted.exception.NoSuchemployeeException;
+import com.lr.revisted.model.employee;
 
 /**
  * Provides a wrapper for {@link employeeLocalService}.
@@ -101,22 +103,23 @@ public class employeeLocalServiceWrapper
 	}
 
 	/**
-	 * Deletes the employee with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * <p>
-	 * <strong>Important:</strong> Inspect employeeLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
-	 * </p>
-	 *
-	 * @param employeeId the primary key of the employee
-	 * @return the employee that was removed
-	 * @throws PortalException if a employee with the primary key could not be found
-	 */
+     * Deletes the employee with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * <p>
+     * <strong>Important:</strong> Inspect employeeLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+     * </p>
+     *
+     * @param employeeId the primary key of the employee
+     * @return
+     * @throws PortalException if a employee with the primary key could not be found
+     */
 	@Override
-	public com.lr.revisted.model.employee deleteemployee(long employeeId)
+	public employee deleteemployee(long employeeId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _employeeLocalService.deleteemployee(employeeId);
-	}
+		_employeeLocalService.deleteemployee(employeeId);
+        return null;
+    }
 
 	/**
 	 * @throws PortalException
@@ -328,6 +331,11 @@ public class employeeLocalServiceWrapper
 		com.lr.revisted.model.employee employee) {
 
 		return _employeeLocalService.updateemployee(employee);
+	}
+
+	@Override
+	public employee updateemployee(String name, long phoneNumber, String email, String address) throws NoSuchemployeeException {
+		return _employeeLocalService.updateemployee ( name, phoneNumber, email, address );
 	}
 
 	@Override

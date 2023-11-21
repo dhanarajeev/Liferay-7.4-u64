@@ -20,12 +20,7 @@ import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.jdbc.SqlUpdate;
 import com.liferay.portal.kernel.dao.jdbc.SqlUpdateFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DefaultActionableDynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
-import com.liferay.portal.kernel.dao.orm.Projection;
+import com.liferay.portal.kernel.dao.orm.*;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -40,22 +35,18 @@ import com.liferay.portal.kernel.service.persistence.BasePersistence;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
-
+import com.lr.revisted.exception.NoSuchemployeeException;
 import com.lr.revisted.model.employee;
 import com.lr.revisted.service.employeeLocalService;
 import com.lr.revisted.service.employeeLocalServiceUtil;
 import com.lr.revisted.service.persistence.employeePersistence;
-
-import java.io.Serializable;
-
-import java.lang.reflect.Field;
-
-import java.util.List;
-
-import javax.sql.DataSource;
-
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
+
+import javax.sql.DataSource;
+import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.util.List;
 
 /**
  * Provides the base implementation for the employee local service.
@@ -116,13 +107,14 @@ public abstract class employeeLocalServiceBaseImpl
 	 * </p>
 	 *
 	 * @param employeeId the primary key of the employee
-	 * @return the employee that was removed
+	 * @return
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
 	public employee deleteemployee(long employeeId) throws PortalException {
-		return employeePersistence.remove(employeeId);
+		 employeePersistence.remove(employeeId);
+		return null;
 	}
 
 	/**
@@ -482,4 +474,5 @@ public abstract class employeeLocalServiceBaseImpl
 	private static final Log _log = LogFactoryUtil.getLog(
 		employeeLocalServiceBaseImpl.class);
 
+    public abstract employee updateemployee(long employeeId, String name, long phoneNumber, String email, String address) throws NoSuchemployeeException;
 }

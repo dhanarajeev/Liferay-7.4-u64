@@ -1,0 +1,10 @@
+Bundle-Name: store-api
+Bundle-SymbolicName: com.lr.goldisannew.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.lr.goldisannew.exception,\
+	com.lr.goldisannew.model,\
+	com.lr.goldisannew.service,\
+	com.lr.goldisannew.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../store-service/service.xml

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.goldisan.model.Personal">
+		<field name="uuid" type="String" />
+		<field name="personId" type="long" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="emailAddress" type="String" />
+		<field name="phoneNumber" type="long" />
+		<field name="createPassword" type="String" />
+		<field name="conformPassword" type="String" />
+		<field name="address" type="String" />
+	</model>
+</model-hints>

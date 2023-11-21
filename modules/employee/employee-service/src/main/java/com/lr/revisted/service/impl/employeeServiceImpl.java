@@ -39,6 +39,17 @@ public class employeeServiceImpl extends employeeServiceBaseImpl {
 
 		return employeeLocalService.addemployee ( name, phoneNumber, email, address );
 	}
+/*
+	@Override
+    public employee updateemployee(String name, long phoneNumber, String email, String address) {
+		try {
+			return employeeLocalService.updateemployee ( name, phoneNumber, email, address );
+		} catch (NoSuchemployeeException e) {
+			throw new RuntimeException ( e );
+		}
+	}
+
+*/
 
 	@Override
 	public employee getEmployeeById(long employeeId) throws PortalException{
@@ -51,7 +62,34 @@ public class employeeServiceImpl extends employeeServiceBaseImpl {
 		employees = employeeLocalService.getemployees ( startIndex, lastIndex );
 		return employees;
 	}
+@Override
+public employee deleteemployee(long employeeId) throws PortalException {
+		employee employee = employeeLocalService.getemployee ( employeeId );
+		return employeeLocalService.deleteemployee ( employee );
+}
 
+	@Override
+	public employee updateemployee(long employeeId, String name, long phoneNumber, String email, String address) {
+		employee employee = employeePersistence.fetchByPrimaryKey ( employeeId );
+
+		if(employee != null)
+		{
+			employee.setName ( name );
+			employee.setPhoneNumber ( phoneNumber );
+			employee.setEmail ( email );
+			employee.setAddress ( address );
+
+			return employeePersistence.update ( employee );
+		}
+		return null;
+	}
+
+
+	@Override
+	public employee updateemployee(String name, long phoneNumber, String email, String address) {
+
+		return null;
+	}
 
 	@Override
 	public int getEmployeesCount() {

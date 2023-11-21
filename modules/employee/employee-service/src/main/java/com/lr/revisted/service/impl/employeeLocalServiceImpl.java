@@ -15,9 +15,11 @@
 package com.lr.revisted.service.impl;
 
 import com.liferay.portal.aop.AopService;
+import com.lr.revisted.exception.NoSuchemployeeException;
 import com.lr.revisted.model.employee;
 import com.lr.revisted.model.impl.employeeImpl;
 import com.lr.revisted.service.base.employeeLocalServiceBaseImpl;
+import com.lr.revisted.service.employeeLocalServiceUtil;
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -28,6 +30,8 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class employeeLocalServiceImpl extends employeeLocalServiceBaseImpl {
+
+	private long employeeId;
 
 	@Override
 	public employee addemployee( String name, long phoneNumber, String email, String address)
@@ -45,4 +49,52 @@ public class employeeLocalServiceImpl extends employeeLocalServiceBaseImpl {
 		employeeLocalService.addemployee ( employee );
 		return employee;
 	}
+/*	public employee updateemployee(long employeeId, String name,long phoneNumber, String email, String address) throws PortalException {
+		employee employee = employeePersistence.findByPrimaryKey(employeeId);
+		employee.setName(name);
+		employee.setPhoneNumber ( phoneNumber );
+		employee.setEmail(email);
+		employee.setAddress ( address );
+		return employeePersistence.update(employee);
+	}*/
+ 	public employee deleteemployee(long employeeId) throws NoSuchemployeeException {
+		return employeePersistence.remove ( employeeId );
+	}
+
+	@Override
+	public employee updateemployee(long employeeId, String name, long phoneNumber, String email, String address) throws NoSuchemployeeException {
+		return null;
+	}
+
+	@Override
+	public employee updateemployee(String name, long phoneNumber, String email, String address) throws NoSuchemployeeException {
+		 employee employee = employeeLocalServiceUtil.fetchemployee ( employeeId );
+		if(employee!= null)
+		{
+			employee.setName ( name );
+			employee.setPhoneNumber ( phoneNumber );
+			employee.setEmail ( email );
+			employee.setAddress ( address );
+
+			return employeeLocalServiceUtil.updateemployee ( employee );
+		}
+		return null;
+	}
+
+	/*@Override
+	public employee updateemployee(long employeeId, String name, long phoneNumber, String email, String address) throws NoSuchemployeeException {
+		employee employee = employeePersistence.findByPrimaryKey(employeeId);
+		employee.setName(name);
+		employee.setPhoneNumber ( phoneNumber );
+		employee.setEmail(email);
+		employee.setAddress ( address );
+		return employeePersistence.update(employee);
+	}
+	*/
+
+	/*public employee deleteemployee(long employeeId) throws PortalException {
+		employee employee = employeePersistence.remove ( employeeId );
+		return employee;
+	}
+*/
 }

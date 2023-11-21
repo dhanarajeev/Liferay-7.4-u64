@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.lr.goldisannew.model.Store">
+		<field name="uuid" type="String" />
+		<field name="storeId" type="long" />
+		<field name="branchId" type="long" />
+		<field name="branchName" type="String" />
+		<field name="address" type="String" />
+		<field name="contactNumber" type="long" />
+	</model>
+</model-hints>

@@ -26,19 +26,15 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiService;
 import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.util.PortalUtil;
-
 import com.lr.revisted.model.employee;
 import com.lr.revisted.service.employeeService;
 import com.lr.revisted.service.employeeServiceUtil;
 import com.lr.revisted.service.persistence.employeePersistence;
-
-import java.lang.reflect.Field;
-import java.util.List;
-
-import javax.sql.DataSource;
-
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
+
+import javax.sql.DataSource;
+import java.lang.reflect.Field;
 
 /**
  * Provides the base implementation for the employee remote service.
@@ -89,7 +85,12 @@ public abstract class employeeServiceBaseImpl
 		return employeeService.class.getName();
 	}
 
-	protected Class<?> getModelClass() {
+    @Override
+    public employee deleteemployee(long employeeId) throws PortalException {
+        return null;
+    }
+
+    protected Class<?> getModelClass() {
 		return employee.class;
 	}
 
@@ -168,6 +169,10 @@ public abstract class employeeServiceBaseImpl
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		employeeServiceBaseImpl.class);
+
+    public abstract employee updateemployee(long employeeId, String name, long phoneNumber, String email, String address);
+
+    //public deleteemployee(long employeeId) throws PortalException;
 
 	//public abstract employee getemployeeById(long employeeId) throws PortalException;
 

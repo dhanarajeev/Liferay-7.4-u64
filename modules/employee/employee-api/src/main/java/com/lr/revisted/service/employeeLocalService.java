@@ -30,14 +30,12 @@ import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
-
+import com.lr.revisted.exception.NoSuchemployeeException;
 import com.lr.revisted.model.employee;
+import org.osgi.annotation.versioning.ProviderType;
 
 import java.io.Serializable;
-
 import java.util.List;
-
-import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * Provides the local service interface for employee. Methods of this
@@ -108,16 +106,16 @@ public interface employeeLocalService
 	public employee deleteemployee(employee employee);
 
 	/**
-	 * Deletes the employee with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * <p>
-	 * <strong>Important:</strong> Inspect employeeLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
-	 * </p>
-	 *
-	 * @param employeeId the primary key of the employee
-	 * @return the employee that was removed
-	 * @throws PortalException if a employee with the primary key could not be found
-	 */
+     * Deletes the employee with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * <p>
+     * <strong>Important:</strong> Inspect employeeLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+     * </p>
+     *
+     * @param employeeId the primary key of the employee
+     * @return
+     * @throws PortalException if a employee with the primary key could not be found
+     */
 	@Indexable(type = IndexableType.DELETE)
 	public employee deleteemployee(long employeeId) throws PortalException;
 
@@ -269,4 +267,5 @@ public interface employeeLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public employee updateemployee(employee employee);
 
+    employee updateemployee(String name, long phoneNumber, String email, String address) throws NoSuchemployeeException;
 }

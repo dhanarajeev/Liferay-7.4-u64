@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:store:store-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../store-api/src/main/java"
+}
+
+group = "com.lr.goldisannew"

@@ -1,0 +1,4 @@
+Bundle-Name: User
+Bundle-SymbolicName: com.lr.goldisan
+Bundle-Version: 1.0.0
+Export-Package: com.lr.goldisan.constants

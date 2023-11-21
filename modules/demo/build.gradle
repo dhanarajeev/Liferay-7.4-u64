@@ -1,0 +1,9 @@
+dependencies {
+	implementation project(path: ':modules:personal:personal-api')
+    implementation project(path: ':modules:company:company-api')
+    implementation project(path: ':modules:company:company-api')
+    implementation project(path: ':modules:store:store-api')
+    compileOnly group: "com.liferay.portal", name: "release.portal.api"
+
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.1.0"
+}

@@ -1,0 +1,1 @@
+create index IX_52A448DE on lr_Company (uuid_[$COLUMN_LENGTH:75$], companyId);

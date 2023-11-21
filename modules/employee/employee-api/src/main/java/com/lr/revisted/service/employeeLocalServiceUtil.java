@@ -108,13 +108,11 @@ public class employeeLocalServiceUtil {
 	 * </p>
 	 *
 	 * @param employeeId the primary key of the employee
-	 * @return the employee that was removed
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	public static employee deleteemployee(long employeeId)
 		throws PortalException {
-
-		return getService().deleteemployee(employeeId);
+	return getService().deleteemployee(employeeId);
 	}
 
 	/**
@@ -301,6 +299,7 @@ public class employeeLocalServiceUtil {
 	}
 
 	private static volatile employeeLocalService _service;
+
 
 
 }

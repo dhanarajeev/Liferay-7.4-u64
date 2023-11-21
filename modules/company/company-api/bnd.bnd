@@ -1,0 +1,10 @@
+Bundle-Name: company-api
+Bundle-SymbolicName: com.lr.goldisan.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.lr.goldisan.exception,\
+	com.lr.goldisan.model,\
+	com.lr.goldisan.service,\
+	com.lr.goldisan.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../company-service/service.xml

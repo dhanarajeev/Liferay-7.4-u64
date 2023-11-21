@@ -5,7 +5,7 @@
 
 </portlet:actionURL>
 <h1>Create/Edit Employee Details</h1>
-<aui:form name="fm" action="${saveEmployeeURL}">
+<aui:form name="fm" action="${saveEmployeeURL}" method="post">
 
 <aui:model-context bean="${employee}" model="<%= employee.class %>" />
 

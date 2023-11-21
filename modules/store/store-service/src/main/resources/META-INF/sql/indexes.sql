@@ -1,0 +1,1 @@
+create index IX_E4BD9F66 on lr_Store (uuid_[$COLUMN_LENGTH:75$]);
